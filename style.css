@@ -157,12 +157,22 @@ h2 {
   text-shadow: 0 1px 1px rgba(255,255,255,.4);
 }
 
-.hero h1 span {
-  display: inline-block;
-  font-size: .45em;
-  margin: 0 .18em;
-  vertical-align: middle;
+.hero h1 .name {
+  display: block;
+  margin: 0;
+  color: #8e816d;
+  font-size: 1em;
+  line-height: 1.05;
+}
+
+.hero h1 .and {
+  display: block;
+  margin: 8px 0;
   color: var(--gold);
+  font-family: "Cormorant Garamond", serif;
+  font-size: .38em;
+  line-height: 1;
+  letter-spacing: .08em;
 }
 
 .hero__date {
@@ -344,17 +354,23 @@ h2 {
 }
 
 .monogram {
-  margin: 10px 0 24px;
+  margin: 20px 0 28px;
   color: #928773;
   font-family: "Cormorant Garamond", serif;
-  font-size: 130px;
-  line-height: .72;
+  font-size: clamp(100px, 16vw, 145px);
+  line-height: .8;
   font-weight: 500;
+  letter-spacing: .02em;
 }
 
 .monogram span {
   display: inline-block;
-  transform: translate(-16px, 48px);
+  margin: 0 .08em;
+  color: #a5967d;
+  font-size: .42em;
+  font-weight: 400;
+  vertical-align: middle;
+  transform: translateY(-8px);
 }
 
 .floral-story__card > p:last-child {
@@ -571,9 +587,20 @@ footer {
     padding: 80px 18px 95px;
   }
 
-  .hero h1 {
-    font-size: clamp(39px, 12vw, 60px);
-  }
+.hero h1 {
+  font-size: clamp(42px, 13vw, 62px);
+  line-height: 1.05;
+}
+
+.hero h1 .name {
+  display: block;
+}
+
+.hero h1 .and {
+  display: block;
+  margin: 7px 0;
+  font-size: .38em;
+}
 
   .hero__date {
     font-size: 29px;

@@ -178,7 +178,7 @@ h2 {
 .hero__date {
   margin-bottom: 20px;
   line-height: 1.6;
-  min-height: 80px;    
+  min-height: 94px;    
   color: var(--gold-dark);
   font-family: "Cormorant Garamond", serif;
   font-size: clamp(26px, 5vw, 38px);
@@ -200,7 +200,7 @@ h2 {
 .scroll-cue {
   position: absolute;
   left: 50%;
-  bottom: 70px; /* 24px-ის ნაცვლად ჩაწერეთ 70px */
+  bottom: 70px; 
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
@@ -356,23 +356,25 @@ h2 {
 }
 
 .monogram {
-  margin: 20px 0 28px;
+  margin: 15px 0 0;
   color: #928773;
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(100px, 16vw, 145px);
-  line-height: .8;
+  font-size: 100px;
+  line-height: 1;
   font-weight: 500;
-  letter-spacing: .02em;
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 
 .monogram span {
   display: inline-block;
-  margin: 0 .08em;
+  margin: 0 .05em;
   color: #a5967d;
-  font-size: .42em;
+  font-size: 0.5em;
   font-weight: 400;
   vertical-align: middle;
-  transform: translateY(-8px);
+  transform: none;
 }
 
 .floral-story__card > p:last-child {

@@ -1,39 +1,60 @@
-const weddingDate = new Date("2026-09-06T18:00:00+04:00");
-
-const els = {
-  days: document.getElementById("days"),
-  hours: document.getElementById("hours"),
-  minutes: document.getElementById("minutes"),
-  seconds: document.getElementById("seconds")
-};
-
-function pad(value) {
-  return String(value).padStart(2, "0");
-}
+// ქორწილის ათვლა (06.09.2026 18:00)
+const weddingDate = new Date('2026-09-06T18:00:00').getTime();
 
 function updateCountdown() {
-  const now = new Date();
-  const diff = weddingDate - now;
+  const now = new Date().getTime();
+  const difference = weddingDate - now;
 
-  if (diff <= 0) {
-    els.days.textContent = "00";
-    els.hours.textContent = "00";
-    els.minutes.textContent = "00";
-    els.seconds.textContent = "00";
-    return;
+  if (difference > 0) {
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+    document.getElementById('days').innerText = days;
+    document.getElementById('hours').innerText = hours;
+    document.getElementById('minutes').innerText = minutes;
+    document.getElementById('seconds').innerText = seconds;
+  } else {
+    document.getElementById('days').innerText = '0';
+    document.getElementById('hours').innerText = '0';
+    document.getElementById('minutes').innerText = '0';
+    document.getElementById('seconds').innerText = '0';
   }
-
-  const totalSeconds = Math.floor(diff / 1000);
-  const days = Math.floor(totalSeconds / 86400);
-  const hours = Math.floor((totalSeconds % 86400) / 3600);
-  const minutes = Math.floor((totalSeconds % 3600) / 60);
-  const seconds = totalSeconds % 60;
-
-  els.days.textContent = days;
-  els.hours.textContent = pad(hours);
-  els.minutes.textContent = pad(minutes);
-  els.seconds.textContent = pad(seconds);
 }
 
-updateCountdown();
 setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// მუსიკის მართვა
+const music = document.getElementById('bg-music');
+const musicBtn = document.getElementById('music-toggle');
+
+function startMusicOnFirstInteraction() {
+  if (music) {
+    music.play().then(() => {
+      musicBtn.classList.add('playing');
+      musicBtn.innerText = '🎵';
+    }).catch(() => {});
+  }
+  document.removeEventListener('click', startMusicOnFirstInteraction);
+  document.removeEventListener('touchstart', startMusicOnFirstInteraction);
+}
+
+document.addEventListener('click', startMusicOnFirstInteraction);
+document.addEventListener('touchstart', startMusicOnFirstInteraction);
+
+if (musicBtn) {
+  musicBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (music.paused) {
+      music.play();
+      musicBtn.classList.add('playing');
+      musicBtn.innerText = '🎵';
+    } else {
+      music.pause();
+      musicBtn.classList.remove('playing');
+      musicBtn.innerText = '🔇';
+    }
+  });
+}

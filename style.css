@@ -140,7 +140,6 @@ h2 {
   margin-bottom: 15px;
 }
 
-/* 3 ცალკეულ ხაზად და ბევრად დიდი ზომით */
 .hero__title {
   display: flex;
   flex-direction: column;
@@ -179,7 +178,6 @@ h2 {
   padding: 0 .3em;
 }
 
-/* ჩარჩოს ხაზებს შორის ზუსტი ჯდება */
 .hero__location-wrap {
   display: flex;
   align-items: center;
@@ -532,6 +530,39 @@ footer {
   color: #8a8d85;
   font-size: 11px;
   letter-spacing: .08em;
+}
+
+/* Music floating button */
+.music-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 999;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--gold-dark);
+  font-size: 20px;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.music-btn:hover {
+  transform: scale(1.08);
+  background: #fff;
+}
+
+.music-btn.playing {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
 }
 
 /* Responsive styles */

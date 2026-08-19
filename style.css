@@ -114,12 +114,15 @@ h2 {
 .hero {
   position: relative;
   min-height: 100svh;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
   background-image: url("assets/hero-bg.jpg");
   background-size: cover;
   background-position: center;
+  padding: 60px 0;
 }
 
 .hero__overlay {
@@ -133,56 +136,47 @@ h2 {
   z-index: 1;
   width: min(90%, 700px);
   text-align: center;
-  padding: 80px 30px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .eyebrow {
   color: var(--gold-dark);
   font-family: "Noto Serif Georgian", serif;
   font-size: clamp(18px, 3vw, 25px);
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .ornament {
   color: var(--gold);
   font-size: 20px;
-  margin-bottom: 25px;
+  margin-bottom: 18px;
 }
 
 .hero h1 {
-  margin-bottom: 35px;
+  margin-bottom: 25px;
   color: #8e816d;
-  font-size: clamp(43px, 8vw, 78px);
-  line-height: 1.6;
+  font-size: clamp(40px, 8vw, 78px);
+  line-height: 1.2;
   text-shadow: 0 1px 1px rgba(255,255,255,.4);
 }
 
-.hero h1 .name {
-  display: block;
-  margin: 0;
-  color: #8e816d;
-  font-size: 1em;
-  line-height: 1.05;
-}
-
-.hero h1 .and {
-  display: block;
-  margin: 8px 0;
+.hero h1 span {
+  display: inline-block;
+  font-size: .45em;
+  margin: 0 .18em;
+  vertical-align: middle;
   color: var(--gold);
-  font-family: "Cormorant Garamond", serif;
-  font-size: .38em;
-  line-height: 1;
-  letter-spacing: .08em;
 }
 
 .hero__date {
-  margin-bottom: 20px;
-  line-height: 1.6;
-  min-height: 94px;    
+  margin-bottom: 10px;
   color: var(--gold-dark);
   font-family: "Cormorant Garamond", serif;
   font-size: clamp(26px, 5vw, 38px);
   letter-spacing: .12em;
+  line-height: 1.5;
 }
 
 .hero__date span {
@@ -191,24 +185,20 @@ h2 {
 }
 
 .hero__place {
-  margin-bottom: 0;
+  margin-bottom: 35px;
   color: #7a8078;
   font-family: "Noto Serif Georgian", serif;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .scroll-cue {
-  position: absolute;
-  left: 50%;
-  bottom: 70px; 
-  transform: translateX(-50%);
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
   gap: 7px;
   color: #777c74;
   text-decoration: none;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: .12em;
 }
 
@@ -277,20 +267,21 @@ h2 {
 .details-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 20px;
   max-width: 900px;
-  margin: 50px auto 0;
+  margin: 45px auto 0;
 }
 
 .detail-card {
-  min-height: 240px;
-  padding: 30px 22px;
+  min-height: 220px;
+  padding: 25px 18px;
   background: rgba(255,255,255,.35);
   border: 1px solid rgba(126,126,111,.22);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  word-break: break-word;
 }
 
 .detail-icon {
@@ -298,12 +289,13 @@ h2 {
   place-items: center;
   width: 54px;
   height: 54px;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   border: 1px solid var(--gold);
   border-radius: 50%;
   color: var(--gold-dark);
   font-family: "Cormorant Garamond", serif;
   font-size: 22px;
+  flex-shrink: 0;
 }
 
 .detail-label {
@@ -316,7 +308,8 @@ h2 {
 .detail-card h3 {
   margin-bottom: 0;
   color: var(--gold-dark);
-  font-size: 21px;
+  font-size: clamp(17px, 2.2vw, 21px);
+  line-height: 1.35;
 }
 
 .detail-card p:last-child {
@@ -327,9 +320,12 @@ h2 {
 /* Floral story */
 .floral-story {
   position: relative;
-  min-height: 800px;
+  min-height: 650px;
   overflow: hidden;
   background: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .floral-story__image {
@@ -341,46 +337,36 @@ h2 {
 }
 
 .floral-story__card {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: min(390px, 70vw);
-  padding: 55px 30px;
+  position: relative;
+  z-index: 1;
+  width: min(390px, 85vw);
+  padding: 40px 20px;
   text-align: center;
   color: var(--gold-dark);
 }
 
 .floral-story__card .section-kicker {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .monogram {
-  margin: 15px 0 0;
+  margin: 10px 0 0;
   color: #928773;
   font-family: "Cormorant Garamond", serif;
-  font-size: 100px;
+  font-size: clamp(70px, 12vw, 110px);
   line-height: 1;
   font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
+}
 
 .monogram span {
   display: inline-block;
-  margin: 0 .05em;
-  color: #a5967d;
-  font-size: 0.5em;
-  font-weight: 400;
-  vertical-align: middle;
+  font-size: 0.55em;
+  color: var(--gold);
   transform: none;
-}
-
-.floral-story__card > p:last-child {
-  margin: 0;
-  font-family: "Noto Serif Georgian", serif;
-  font-size: 18px;
 }
 
 /* Location */
@@ -569,6 +555,7 @@ footer {
   letter-spacing: .08em;
 }
 
+/* Responsive styles */
 @media (max-width: 700px) {
   .container {
     width: min(100% - 28px, 1100px);
@@ -584,30 +571,11 @@ footer {
 
   .hero {
     min-height: 100svh;
-    background-position: 58% center;
+    padding: 40px 0;
   }
 
-  .hero__content {
-    padding: 80px 18px 95px;
-  }
-
-.hero h1 {
-  font-size: clamp(42px, 13vw, 62px);
-  line-height: 1.05;
-}
-
-.hero h1 .name {
-  display: block;
-}
-
-.hero h1 .and {
-  display: block;
-  margin: 7px 0;
-  font-size: .38em;
-}
-
-  .hero__date {
-    font-size: 29px;
+  .hero h1 {
+    font-size: clamp(36px, 11vw, 58px);
   }
 
   .countdown-section {
@@ -631,19 +599,16 @@ footer {
 
   .details-grid {
     grid-template-columns: 1fr;
-    max-width: 390px;
+    max-width: 360px;
   }
 
   .detail-card {
-    min-height: 200px;
+    min-height: auto;
+    padding: 25px 20px;
   }
 
   .floral-story {
-    min-height: 680px;
-  }
-
-  .floral-story__image {
-    background-position: 58% center;
+    min-height: 520px;
   }
 
   .map-card {
